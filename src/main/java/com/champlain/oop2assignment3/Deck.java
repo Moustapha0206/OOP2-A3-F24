@@ -13,21 +13,39 @@ import java.util.List;
  * </p>
  */
 public class Deck extends CardCollection implements CardSource {
+
+    /**
+     * The single instance of the Deck (Singleton pattern).
+     */
+    private static Deck instance;
+
     /**
      * The list of cards in the deck.
      */
     private final List<Card> aCards = new ArrayList<>();
 
     /**
-     * Constructs a new Deck containing all standard playing cards.
+     * Private constructor to prevent direct instantiation.
      * The deck is initialized with one of each rank and suit combination.
      */
-    public Deck() {
+    private Deck() {
         for (Rank currentRank : Rank.values()) {
             for (Suit currentSuit : Suit.values()) {
                 this.aCards.add(new Card(currentRank, currentSuit));
             }
         }
+    }
+
+    /**
+     * Returns the single instance of the Deck.
+     *
+     * @return the singleton instance of the Deck
+     */
+    public static Deck getInstance() {
+        if (instance == null) {
+            instance = new Deck();
+        }
+        return instance;
     }
 
     /**
@@ -37,13 +55,23 @@ public class Deck extends CardCollection implements CardSource {
         Collections.shuffle(this.aCards);
     }
 
+    /**
+     * Draws the top card from the deck.
+     *
+     * @return the drawn card
+     */
     public Card draw() {
-        int last = this.aCards.size()-1;
+        int last = this.aCards.size() - 1;
         Card myCard = this.aCards.get(last);
         this.aCards.remove(last);
         return myCard;
     }
 
+    /**
+     * Checks if the deck is empty.
+     *
+     * @return true if the deck is empty, false otherwise
+     */
     public boolean isEmpty() {
         return this.aCards.isEmpty();
     }
