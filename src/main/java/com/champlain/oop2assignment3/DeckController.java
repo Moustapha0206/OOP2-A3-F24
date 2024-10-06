@@ -93,8 +93,9 @@ public class DeckController {
                     this.aDeckTextArea.setText("This does not sort by rank first yet.");
                     break;
                 case "Suit First":
-                    // TODO: Replace the following line of code.
-                    this.aDeckTextArea.setText("This does not sort by suit first yet.");
+                    // Sort by suit first using SuitFirstComparator
+                    this.aDeck.getCards().sort(new SuitFirstComparator());
+                    this.aDeckTextArea.setText(this.aDeck.toString());
                     break;
                 default:
                     this.aDeckTextArea.setText("This should not happen! You messed up.");
