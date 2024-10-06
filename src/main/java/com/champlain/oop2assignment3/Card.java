@@ -1,4 +1,6 @@
 package com.champlain.oop2assignment3;
+import java.util.Objects;
+
 
 /**
  * Represents a playing card with a specific suit and rank.
@@ -53,4 +55,29 @@ public class Card {
     public String toString() {
         return this.getRank() + " of " + this.getSuit();
     }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        // Check if the object is the same instance
+        if (this == obj) {
+            return true;
+        }
+
+        // Check if the object is null or not of the same class
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
+        // Cast the object to a Card and compare rank and suit
+
+        Card card = (Card) obj;
+        return this.aRank == card.aRank && this.aSuit == card.aSuit;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(aRank, aSuit);
+    }
 }
+
