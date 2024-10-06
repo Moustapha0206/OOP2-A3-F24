@@ -31,11 +31,10 @@ public class DeckApplication extends Application {
      * @param pArgs Additional program arguments. Not used.
      */
     public static void main(String[] pArgs) {
-        // Add card comparison logic here before launching the program
         Card card1 = new Card(Rank.ACE, Suit.HEARTS);
         Card card2 = new Card(Rank.ACE, Suit.HEARTS);
 
-        // Compare the two cards and print the result to the terminal
+
         if (card1.equals(card2)) {
             System.out.println("The cards are equal.");
         } else {

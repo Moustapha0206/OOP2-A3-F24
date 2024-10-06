@@ -59,17 +59,13 @@ public class Card {
 
     @Override
     public boolean equals(Object obj) {
-        // Check if the object is the same instance
         if (this == obj) {
             return true;
         }
 
-        // Check if the object is null or not of the same class
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-
-        // Cast the object to a Card and compare rank and suit
 
         Card card = (Card) obj;
         return this.aRank == card.aRank && this.aSuit == card.aSuit;

@@ -6,8 +6,6 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
-import java.util.Collections;
-
 /**
  * Controller class for managing the deck and hand of cards in the user interface.
  * <p>
@@ -91,14 +89,12 @@ public class DeckController {
         } else {
             switch (choice) {
                 case "Rank First":
-                    // TODO: Replace the following line of code.
                     this.aDeck.sort(new RankFirstComparator());
                     this.displayCardCollections();
                     break;
                 case "Suit First":
-                    // Sort by suit first using SuitFirstComparator
-                    this.aDeck.getCards().sort(new SuitFirstComparator());
-                    this.aDeckTextArea.setText(this.aDeck.toString());
+                    this.aDeck.sort(new SuitFirstComparator());
+                    this.displayCardCollections();
                     break;
                 default:
                     this.aDeckTextArea.setText("This should not happen! You messed up.");
