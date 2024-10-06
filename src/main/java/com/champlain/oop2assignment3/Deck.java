@@ -84,4 +84,12 @@ public class Deck extends CardCollection implements CardSource {
     public Iterator<Card> iterator() {
         return this.aCards.iterator();
     }
+    /**
+     * Provides access to the list of cards.
+     * @return the list of cards in the deck
+     */
+    public List<Card> getCards() {
+        return this.aCards;
+    }
 }
+
