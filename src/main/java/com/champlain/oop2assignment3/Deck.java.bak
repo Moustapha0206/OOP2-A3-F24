@@ -2,7 +2,6 @@ package com.champlain.oop2assignment3;
 
 import java.util.*;
 
-
 /**
  * Represents a deck of playing cards.
  * <p>
@@ -82,8 +81,18 @@ public class Deck extends CardCollection implements CardSource {
     public Iterator<Card> iterator() {
         return this.aCards.iterator();
     }
+<<<<<<< HEAD
+    /**
+     * Provides access to the list of cards.
+     * @return the list of cards in the deck
+     */
+    public List<Card> getCards() {
+        return this.aCards;
+=======
 
-    public void sort (Comparator<Card> pComparator) {
-        Collections.sort(aCards, pComparator);
+    public void sort (Comparator<Card> comparator) {
+        Collections.sort(aCards, comparator);
+>>>>>>> origin/feature/RankFirstComparator
     }
 }
+
